@@ -18,12 +18,13 @@
 
   <div class="field">
     <%= form.label :body %>
-    <%= form.text_field :body %>
+    <%= form.text_area :body, size: '50x10' %>
   </div>
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.text_field :image %>
+    <%= form.select :image, [['Log Cabin', 'logcabin'], ['Landscape', 'landscape'], ['Chalet', 'chalet'], ['Nature', 'nature'], ['Edible garden', 'ediblegarden']] %>
+    <%#= form.text_field :image %>
   </div>
 
   <div class="actions">

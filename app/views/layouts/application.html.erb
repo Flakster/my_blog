@@ -10,12 +10,34 @@
   </head>
 
   <body>
+  <nav class="nav">
+    <%= link_to 'Blog Home', root_path %>
+    <div class="menu">
+      <% if user_signed_in? %>
+        <div class="menu-item">
+          Logged in as <strong><%= current_user.name %></strong>.
+        </div>
+        <div class="menu-item">
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+        </div>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <div class="menu-item">
+          <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+        </div>
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+    </div>
+  </nav>
+  
   	<% if notice %>
 		  <p class="alert alert-success"><%= notice %></p>
 	  <% end %>
 	  <% if alert %>
 		  <p class="alert alert-danger"><%= alert %></p>
 	  <% end %>
-    <%= yield %>
+    <main class="main">
+      <%= yield %>
+    </main>
   </body>
 </html>
