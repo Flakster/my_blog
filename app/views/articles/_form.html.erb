@@ -24,7 +24,19 @@
   <div class="field">
     <%= form.label :image %>
     <%= form.select :image, [['Log Cabin', 'logcabin'], ['Landscape', 'landscape'], ['Chalet', 'chalet'], ['Nature', 'nature'], ['Edible garden', 'ediblegarden']] %>
-    <%#= form.text_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.fields_for :tags do |tags_form| %>
+    
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.fields_for :tags do |builder| %>
+      <%= builder.label :category %>
+      <%= builder.collection_select :category_id, Category.all, :id, :name %>
+    <% end %>
   </div>
 
   <div class="actions">

@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, :except => [:show, :index]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # GET /articles
@@ -15,17 +16,16 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
+    @article.tags.build
   end
 
   # GET /articles/1/edit
-  def edit
-  end
+  def edit;end
 
   # POST /articles
   # POST /articles.json
   def create
     @article = current_user.articles.build(article_params)
-
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
@@ -69,6 +69,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :body, :image, :user_id)
+      params.require(:article).permit(:title, :body, :image, :user_id, tags_attributes: [:category_id])
     end
 end
