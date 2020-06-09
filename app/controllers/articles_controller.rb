@@ -6,6 +6,8 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
+    @categories = Category.all
+    @featured_article = Article.first   
   end
 
   # GET /articles/1
@@ -25,6 +27,9 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
+    p '=' * 70
+    p article_params
+    p '=' * 70
     @article = current_user.articles.build(article_params)
     respond_to do |format|
       if @article.save
@@ -69,6 +74,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :body, :image, :user_id, tags_attributes: [:category_id])
+      params.require(:article).permit(:title, :body, :image, :author_id, tags_attributes: [:category_id])
     end
 end

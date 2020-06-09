@@ -21,7 +21,7 @@ RSpec.describe "articles/new", type: :view do
 
       assert_select "input[name=?]", "article[image]"
 
-      assert_select "input[name=?]", "article[user_id]"
+      assert_select "input[name=?]", "article[author_id]"
     end
   end
 end
