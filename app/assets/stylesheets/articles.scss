@@ -1,3 +1,67 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.article-container {
+  margin: 20px;
+
+  .article-image {
+    width: 50vw;
+    height: 50vh;
+  }
+}
+
+.popular-article {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: center/cover no-repeat;
+  font-size: 20px;
+  font-weight: 800;
+  height: 60vh;
+  
+  .popular-title {
+    color: white;
+    text-shadow: 2px 2px black;
+    padding: 10px;
+  }
+  
+  .popular-body {
+    color: mistyrose;
+    text-shadow: 2px 2px black;
+    padding: 10px;
+  }
+}
+
+.category-container {
+  display: flex;
+  justify-content: space-around;
+  
+  .category-item {
+    position: relative;
+    flex: 1;
+    background: center/cover no-repeat;
+    height: 30vh;
+  }
+
+  .lower-link {
+    position: absolute;
+    padding: 5px;
+    left: 10px;
+  }
+
+  .category-link {
+    top: 10px;
+    background-color: rgba(95, 25, 93, 0.5);
+  }
+
+  .article-link {
+    bottom: 10px;
+    background-color: rgba(18, 37, 13, 0.4);
+  }
+  a {
+    color : white;
+    font-weight: 800;
+    text-shadow: 2px 2px black;
+  }
+}

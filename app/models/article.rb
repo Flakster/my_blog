@@ -7,5 +7,7 @@ class Article < ApplicationRecord
   validates :title, :body, :image, :author_id, presence: true
   
   accepts_nested_attributes_for :tags
+
+  scope :recent, -> {order(created_at: :desc).limit(1)}
   
 end

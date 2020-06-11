@@ -14,11 +14,8 @@
     <%= link_to 'Blog Home', root_path %>
     <div class="menu">
       <% if user_signed_in? %>
-        <div class="menu-item">
-          Logged in as <strong><%= current_user.name %></strong>.
-        </div>
-        <div class="menu-item">
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to current_user.name.capitalize(), edit_user_registration_path, :class => 'navbar-link' %> |
+          <%= link_to 'New article', new_article_path, :class => 'navbar-link' %>
         </div>
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
       <% else %>

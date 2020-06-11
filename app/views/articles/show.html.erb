@@ -1,24 +1,18 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
+<main class="article-container">
+<h1 class="article-title" >
   <%= @article.title %>
-</p>
+</h1>
 
 <p>
-  <strong>Body:</strong>
+  <%= @article.author.name %> - <%= @article.created_at.strftime("%B %-d, %Y")%>
+</p>
+
+<img class="article-image" src="<%= image_path @article.image %>" alt="article image" >
+
+<p>
   <%= @article.body %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @article.image %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @article.author_id %>
 </p>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
+</main>

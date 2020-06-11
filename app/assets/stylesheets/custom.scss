@@ -44,11 +44,12 @@ a {
   color: $primary-color-light;
 
   .menu {
+    display: flex;
     width: 80%;
-    justify-content: space-between;
+    text-align: right;
+    justify-content: flex-end;
 
     .menu-item {
-      float: left;
       margin: 0 15px;
 
       .active {
@@ -62,18 +63,12 @@ a {
 
 .nav a {
   color: $primary-color-light;
-  text-transform: uppercase;
   font-weight: 900;
+  margin: 0 5px;
 }
 
 .nav a:hover {
   color: #fff;
-}
-
-.main {
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
 }
 
 .notice,
